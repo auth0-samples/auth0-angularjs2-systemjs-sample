@@ -14,7 +14,7 @@ import {Auth} from './auth.service';
 })
 @RouteConfig([
   { path: '/home', name: 'Home', component: Home, useAsDefault: true},
-  { path: '/profile', name: 'Profile', component: Profile}
+  { path: '/profile/...', name: 'Profile', component: Profile}
 ])
 
 export class AppComponent {

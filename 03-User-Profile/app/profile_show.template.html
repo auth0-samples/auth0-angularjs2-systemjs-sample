@@ -8,10 +8,9 @@
       <p><strong>Nickname: </strong> {{auth.userProfile.nickname}}</p>
       <p><strong>Created At: </strong> {{auth.userProfile.created_at}}</p>
       <p><strong>Updated At: </strong> {{auth.userProfile.updated_at}}</p>
-      <p *ngIf="auth.userProfile.user_metadata">
-        <strong>Address: </strong> {{auth.userProfile.user_metadata.address}}
-      </p>
+      <p><strong>Address: </strong> {{auth.userProfile.user_metadata.address}}</p>
     </div>
   </div>
+  <button class="btn btn-primary btn-margin" [routerLink]="['/Profile', 'ProfileEdit']">Edit address</button>
 </div>
 <h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>

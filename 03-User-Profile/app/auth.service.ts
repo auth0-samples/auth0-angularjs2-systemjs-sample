@@ -20,7 +20,7 @@ export class Auth {
   });
 
   //Store profile object in auth class
-  userProfile: Object;
+  userProfile: any;
 
   constructor() {
     // Set userProfile attribute if already saved profile
@@ -38,6 +38,7 @@ export class Auth {
           return;
         }
 
+        profile.user_metadata = profile.user_metadata || {};
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
       });
