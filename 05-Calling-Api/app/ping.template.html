@@ -1,0 +1,5 @@
+<h1>Send a Ping to the Server</h1>
+<p *ngIf="!auth.authenticated()">Log In to Get Access to a Secured Ping</p>
+<button class="btn btn-primary" (click)="ping()">Ping</button>
+<button class="btn btn-primary" (click)="securedPing()" *ngIf="auth.authenticated()">Secured Ping</button>
+<h2>{{message}}</h2>

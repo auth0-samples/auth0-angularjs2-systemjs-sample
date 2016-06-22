@@ -1,0 +1,10 @@
+{
+  "name": "auth0-angularjs2-systemjs-sample",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "express-jwt": "^3.4.0"
+  }
+}
