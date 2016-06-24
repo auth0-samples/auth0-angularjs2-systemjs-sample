@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Auth} from './auth.service';
 import {AuthHttp} from 'angular2-jwt';
-import {Http, Headers} from '@angular/http';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -15,9 +15,6 @@ export class Ping {
   constructor(private auth: Auth, private http: Http, private authHttp: AuthHttp) {}
 
   public ping() {
-    var url = 'http://localhost:3001/ping';
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
     this.http.get(`${this.API_URL}/ping`)
       .map(res => res.json())
       .subscribe(
@@ -31,7 +28,7 @@ export class Ping {
       .map(res => res.json())
       .subscribe(
         data => this.message= data.text,
-        error => this.message = error._body
+        error => this.message = error._body || error
       );
   }
 }
