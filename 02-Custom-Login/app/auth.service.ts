@@ -9,8 +9,8 @@ declare var Auth0: any;
 export class Auth {
   // Configure Auth0
   auth0 = new Auth0({
-    domain: 'YOUR_CLIENT_ID',
-    clientID: 'YOUR_DOMAIN',
+    domain: 'YOUR_DOMAIN',
+    clientID: 'YOUR_CLIENT_ID',
     callbackOnLocationHash: true,
     callbackURL: 'CALLBACK_URL',
   });
