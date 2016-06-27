@@ -131,3 +131,7 @@ nav a.router-link-active {
 * { 
   font-family: Arial, Helvetica, sans-serif; 
 }
+
+.btn-margin {
+  margin-top: 5px
+}
