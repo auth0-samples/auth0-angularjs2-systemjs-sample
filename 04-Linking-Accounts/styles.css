@@ -136,3 +136,7 @@ nav a.router-link-active {
   width: 80px;
   height: 80px;
 }
+
+.btn-margin {
+  margin-top: 5px
+}

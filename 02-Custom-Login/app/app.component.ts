@@ -9,8 +9,7 @@ import {Auth} from './auth.service';
     selector: 'my-app',
     providers: [ Auth ],
     directives: [ ROUTER_DIRECTIVES ],
-    templateUrl: 'app/app.template.html',
-    styles: [`.btn-margin { margin-top: 5px}`]
+    templateUrl: 'app/app.template.html'
 })
 @RouteConfig([
   { path: '/home', name: 'Home', component: Home, useAsDefault: true},

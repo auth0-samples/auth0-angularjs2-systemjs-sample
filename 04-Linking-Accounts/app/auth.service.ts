@@ -67,7 +67,7 @@ export class Auth {
     });
 
     this.authHttp
-      .post(`https://' + 'YOUR_DOMAIN' + '/api/v2/users/' + this.userProfile.user_id + '/identities', data, {headers: headers})
+      .post('https://' + 'YOUR_DOMAIN' + '/api/v2/users/' + this.userProfile.user_id + '/identities', data, {headers: headers})
       .map(response => response.json())
       .subscribe(
         response => {
@@ -105,7 +105,7 @@ export class Auth {
   }
 
   public fetchProfile(token) {
-    this.userProfile = undefined;
+    this.userProfile = null;
     // Fetch profile information
     this.lock.getProfile(token, (error, profile) => {
       if (error) {
@@ -130,6 +130,6 @@ export class Auth {
     // Remove token and profile from localStorage
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
-    this.userProfile = undefined;
+    this.userProfile = null;
   };
 }
