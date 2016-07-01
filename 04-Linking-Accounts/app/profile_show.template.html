@@ -12,7 +12,7 @@
         <strong>Linked accounts: </strong>
         <ul>
           <li *ngFor="let identity of auth.linkedAccounts()">
-            {{identity.connection}} ({{identity.profileData.name}})
+            {{identity.connection}} ({{identity.profileData.name || identity.profileData.email }})
             <button class="btn btn-default btn-primary" (click)="unLinkAccount(identity)">unlink</button>
           </li>
         </ul>

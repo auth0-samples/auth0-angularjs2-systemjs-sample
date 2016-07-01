@@ -1,15 +1,10 @@
-import {Component} from '@angular/core';
-import {RouteConfig, ROUTER_PROVIDERS, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
-
-import {Home} from './home.component';
+import { Component }          from '@angular/core';
+import { ROUTER_DIRECTIVES }  from '@angular/router';
 
 @Component({
     selector: 'my-app',
-    directives: [ ROUTER_DIRECTIVES ],
+    directives: [ROUTER_DIRECTIVES],
     templateUrl: 'app/app.template.html'
 })
-@RouteConfig([
-  { path: '/home', name: 'Home', component: Home}
-])
 
-export class AppComponent { }
+export class AppComponent {}

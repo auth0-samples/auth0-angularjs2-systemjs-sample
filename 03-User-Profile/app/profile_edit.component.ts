@@ -1,14 +1,15 @@
-import {Component} from '@angular/core';
-import {Http, HTTP_PROVIDERS} from '@angular/http';
+import { Component }            from '@angular/core';
+import { Http, HTTP_PROVIDERS } from '@angular/http';
+import { Auth }                 from './auth.service';
+import { AuthHttp }             from 'angular2-jwt';
+import { Router }               from '@angular/router';
 import 'rxjs/add/operator/map';
-import {Auth} from './auth.service';
-import {AuthHttp} from 'angular2-jwt';
-import {Router} from '@angular/router-deprecated';
 
 @Component({
   selector: 'profile',
   templateUrl: 'app/profile_edit.template.html'
 })
+
 export class ProfileEdit {
   address: String
   constructor(private auth: Auth, private authHttp: AuthHttp, private router: Router) {
@@ -36,7 +37,7 @@ export class ProfileEdit {
         response => {
           this.auth.userProfile = response;
           localStorage.setItem('profile', JSON.stringify(response));
-          this.router.navigate(['/Profile']);
+          this.router.navigate(['/profile']);
         },
         error => alert(error.json().message)
       );

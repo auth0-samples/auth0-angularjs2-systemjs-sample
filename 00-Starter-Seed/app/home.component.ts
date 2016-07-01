@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'home',
@@ -6,4 +6,5 @@ import {Component} from '@angular/core';
     <h1>Welcome to auth0 - Angular 2 integration app</h1>
   `
 })
-export class Home {}
+
+export class HomeComponent {}

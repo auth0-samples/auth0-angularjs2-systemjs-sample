@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {tokenNotExpired} from 'angular2-jwt';
-import {AuthHttp} from 'angular2-jwt';
-import {Router} from '@angular/router-deprecated';
+import { Injectable }      from '@angular/core';
+import { tokenNotExpired } from 'angular2-jwt';
+import { AuthHttp }        from 'angular2-jwt';
+import { Router }          from '@angular/router';
 import 'rxjs/add/operator/map';
 
 // Avoid name not found warnings
@@ -73,7 +73,7 @@ export class Auth {
         response => {
           console.log("accounts linked");
           this.fetchProfile(localStorage.getItem('id_token'));
-          this.router.navigate(['Profile']);
+          this.router.navigate(['/profile']);
         },
         error => alert(error.json().message)
       );
@@ -92,7 +92,7 @@ export class Auth {
         response => {
           console.log("unlinked account");
           this.fetchProfile(localStorage.getItem('id_token'));
-          this.router.navigate(['Profile']);
+          this.router.navigate(['/profile']);
         },
         error => alert(error.json().message)
       );

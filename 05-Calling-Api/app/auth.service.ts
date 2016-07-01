@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {tokenNotExpired} from 'angular2-jwt';
+import { Injectable }      from '@angular/core';
+import { tokenNotExpired } from 'angular2-jwt';
 
 // Avoid name not found warnings
 declare var Auth0Lock: any;
@@ -31,4 +31,4 @@ export class Auth {
     // Remove token from localStorage
     localStorage.removeItem('id_token');
   };
-}
+};
