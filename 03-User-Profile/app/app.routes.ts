@@ -5,7 +5,8 @@ import { ProfileRoutes }               from './profile.routes';
 
 export const routes: RouterConfig = [
   { path: '', component: HomeComponent},
-  ...ProfileRoutes
+  ...ProfileRoutes,
+  { path: '**', redirectTo: '' }
 ];
 
 export const APP_ROUTER_PROVIDERS = [
