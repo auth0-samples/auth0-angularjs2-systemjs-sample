@@ -28,11 +28,10 @@ export class Auth {
           return;
         }
 
-        profile.user_metadata = profile.user_metadata || {};
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
 
-        if(localStorage.getItem('redirect_on_login') == 'yes'){
+        if(localStorage.getItem('redirect_on_login') == 'true'){
           this.router.navigate(['/admin']);
           localStorage.removeItem('redirect_on_login');
         }
@@ -52,7 +51,9 @@ export class Auth {
   };
 
   public isAdmin() {
-    return this.userProfile && this.userProfile.roles && this.userProfile.roles.indexOf('admin') > -1;
+  return this.userProfile && this.userProfile.app_metadata
+    && this.userProfile.app_metadata.roles
+    && this.userProfile.app_metadata.roles.indexOf('admin') > -1;
   }
 
   public logout() {
