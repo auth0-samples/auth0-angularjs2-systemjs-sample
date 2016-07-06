@@ -31,6 +31,11 @@ export class Auth {
         profile.user_metadata = profile.user_metadata || {};
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
+
+        if(localStorage.getItem('redirect_on_login') == 'yes'){
+          this.router.navigate(['/admin']);
+          localStorage.removeItem('redirect_on_login');
+        }
       });
     });
   }
