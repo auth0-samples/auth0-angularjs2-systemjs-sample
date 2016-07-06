@@ -31,9 +31,10 @@ export class Auth {
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
 
-        if(localStorage.getItem('redirect_on_login') == 'true'){
+        var redirectUrl: string = localStorage.getItem('redirect_url');
+        if(redirectUrl != undefined){
           this.router.navigate(['/admin']);
-          localStorage.removeItem('redirect_on_login');
+          localStorage.removeItem('redirect_url');
         }
       });
     });

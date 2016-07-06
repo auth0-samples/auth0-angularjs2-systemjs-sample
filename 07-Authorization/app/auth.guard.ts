@@ -1,14 +1,16 @@
-import { Injectable }     from '@angular/core';
-import { CanActivate }    from '@angular/router';
-import { Auth }           from './auth.service';
-import { Router }         from '@angular/router';
+import { Injectable }             from '@angular/core';
+import { Router,
+         ActivatedRouteSnapshot,
+         RouterStateSnapshot }    from '@angular/router';
+import { CanActivate }            from '@angular/router';
+import { Auth }                   from './auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
   constructor(private auth: Auth, private router: Router) {}
 
-  canActivate() {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if(this.auth.authenticated()){
       if(this.auth.isAdmin()){
         return true;
@@ -17,7 +19,7 @@ export class AuthGuard implements CanActivate {
         return false;
       }
     } else {
-      localStorage.setItem('redirect_on_login', 'true');
+      localStorage.setItem('redirect_url', state.url);
       this.auth.login();
       this.router.navigate(['']);
       return false;
