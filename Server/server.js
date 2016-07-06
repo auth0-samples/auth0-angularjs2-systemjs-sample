@@ -5,8 +5,8 @@ var app = express();
 var jwt = require('express-jwt');
 
 var authenticate = jwt({
-  secret: new Buffer('ZtXU2NKW7W8635GLnQejue38ZP2YTuP36TRCeF09IXoo4Pm42zUNXeNKzeyXijbB', 'base64'),
-  audience: 'KhnsDMlDnJKJG8bYnCteoHYkoeXiIDO7'
+  secret: new Buffer('YOUR_SERCRET', 'base64'),
+  audience: 'YOUR_CLIENT_ID'
 });
 
 app.use(cors());

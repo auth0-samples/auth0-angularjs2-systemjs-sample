@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {tokenNotExpired} from 'angular2-jwt';
-import {Router} from '@angular/router-deprecated';
+import { Injectable }      from '@angular/core';
+import { tokenNotExpired } from 'angular2-jwt';
+import { Router }          from '@angular/router';
 
 // Avoid name not found warnings
 declare var Auth0: any;
@@ -20,7 +20,7 @@ export class Auth {
 
     if (result && result.idToken) {
       localStorage.setItem('id_token', result.idToken);
-      this.router.navigate(['/Home']);
+      this.router.navigate(['/home']);
     } else if (result && result.error) {
       alert('error: ' + result.error);
     }

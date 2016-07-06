@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {tokenNotExpired} from 'angular2-jwt';
+import { Injectable }      from '@angular/core';
+import { tokenNotExpired } from 'angular2-jwt';
 
 // Avoid name not found warnings
 declare var Auth0Lock: any;
@@ -11,7 +11,7 @@ export class Auth {
 
   constructor() {
     // Add callback for lock `authenticated` event
-    this.lock.on("authenticated", (authResult) => {
+    this.lock.on('authenticated', (authResult) => {
       localStorage.setItem('id_token', authResult.idToken);
     });
   }
