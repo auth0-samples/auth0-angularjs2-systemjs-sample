@@ -31,9 +31,10 @@ export class Auth {
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
 
+        // Redirect if there is a saved url to do so.
         var redirectUrl: string = localStorage.getItem('redirect_url');
         if(redirectUrl != undefined){
-          this.router.navigate(['/admin']);
+          this.router.navigate([redirectUrl]);
           localStorage.removeItem('redirect_url');
         }
       });
