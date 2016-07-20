@@ -1,8 +1,8 @@
-# Login
+# MFA
 
-This example shows how to add ***Login/SignUp*** to your application using `Lock` widget.
+This example shows how to add ***MultiFactor Authentication*** to your `Auth0` authentication flow. To enable MFA in your Auth0 account, go to the [Multifactor Authentication section](https://manage.auth0.com/#/guardian) of the management area and enable either Push Notifications or SMS. There is no need of extra code configuration.
 
-You can read a quickstart for this sample [here](https://auth0.com/docs/quickstart/spa/angular2/01-login). 
+You can read a quickstart for this sample [here](https://auth0.com/docs/quickstart/spa/angular2/09-mfa) 
 
 ## Getting Started
 
@@ -24,22 +24,10 @@ You're ready to write your application.
 
 ## Important Snippets
 
-### 1. Add lock dependency
 
-```html
-/* ===== ./index.html ===== */
-<head>
-  ...
-  <!-- Auth0 Lock script -->
-  <script src="http://cdn.auth0.com/js/lock/10.0.0-rc.2/lock.min.js"></script>
-  ...
-</head>
-```
-
-### 2. Login with lock
+### 1. Login
 
 ```typescript
-/* ===== app/auth.service.ts ===== */
 @Injectable()
 export class Auth {
   // Configure Auth0
