@@ -1,6 +1,6 @@
 # Authorization
 
-This example shows one of the ways of adding ***Authorization*** for a resource in your application. We will have an `/admin` page, which will only be accessible for users with an `admin` role.
+This example shows one of the ways of adding ***Authorization*** for a resource in your application. We have an `/admin` page, which is only accessible for users with an `admin` role.
 
 You can read a quickstart for this sample [here](https://auth0.com/docs/quickstart/spa/angular2/07-authorization). 
 
