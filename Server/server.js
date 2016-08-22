@@ -5,7 +5,7 @@ var app = express();
 var jwt = require('express-jwt');
 
 var authenticate = jwt({
-  secret: new Buffer('YOUR_SERCRET', 'base64'),
+  secret: new Buffer('YOUR_SECRET', 'base64'),
   audience: 'YOUR_CLIENT_ID'
 });
 
