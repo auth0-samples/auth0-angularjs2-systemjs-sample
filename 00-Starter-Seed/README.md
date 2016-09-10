@@ -1,6 +1,6 @@
 # Starter Seed for Auth0-Angular2 Quickstart Guides
 
-This is a default app provided by https://github.com/angular/quickstart. It has basic configuration to start an angula2 application.
+This is a default app provided by https://github.com/angular/quickstart. It has basic configuration to start an Angular 2 application.
 
 Install the npm packages described in the package.json and verify that it works:
 
