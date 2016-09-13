@@ -1,5 +1,5 @@
 import { Component }            from '@angular/core';
-import { Http, HTTP_PROVIDERS } from '@angular/http';
+import { Http } from '@angular/http';
 import { Auth }                 from './auth.service';
 import { AuthHttp }             from 'angular2-jwt';
 import { Router }               from '@angular/router';
