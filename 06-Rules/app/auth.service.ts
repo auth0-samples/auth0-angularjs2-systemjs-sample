@@ -7,7 +7,7 @@ declare var Auth0Lock: any;
 @Injectable()
 export class Auth {
   // Configure Auth0
-  lock = new Auth0Lock('oCzezT18YMr3HjyZlYqIRUFgbjAKNU6J', 'amata2.auth0.com', {});
+  lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_DOMAIN', {});
 
   //Store profile object in auth class
   userProfile: any;
