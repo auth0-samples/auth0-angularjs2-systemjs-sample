@@ -31,7 +31,7 @@ You're ready to write your application.
 <head>
   ...
   <!-- Auth0 Lock script -->
-  <script src="http://cdn.auth0.com/js/lock/10.2.2/lock.min.js"></script>
+  <script src="http://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
   ...
 </head>
 ```
