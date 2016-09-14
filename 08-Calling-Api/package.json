@@ -32,7 +32,7 @@
     "@angular/router-deprecated": "2.0.0-rc.2",
     "@angular/upgrade": "2.0.0-rc.6",
     "angular2-in-memory-web-api": "0.0.14",
-    "angular2-jwt": "^0.1.16",
+    "angular2-jwt": "^0.1.22",
     "bootstrap": "^3.3.6",
     "core-js": "^2.4.0",
     "reflect-metadata": "^0.1.3",
