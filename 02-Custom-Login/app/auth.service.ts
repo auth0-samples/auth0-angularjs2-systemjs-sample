@@ -1,6 +1,7 @@
 import { Injectable }      from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
 import { Router }          from '@angular/router';
+import { myConfig }        from './auth.config';
 
 // Avoid name not found warnings
 declare var Auth0: any;
@@ -9,10 +10,10 @@ declare var Auth0: any;
 export class Auth {
   // Configure Auth0
   auth0 = new Auth0({
-    domain: 'YOUR_DOMAIN',
-    clientID: 'YOUR_CLIENT_ID',
+    domain: myConfig.domain,
+    clientID: myConfig.clientID,
     callbackOnLocationHash: true,
-    callbackURL: 'CALLBACK_URL',
+    callbackURL: myConfig.callbackURL,
   });
 
   constructor(private router: Router) {
