@@ -1,5 +1,6 @@
 import { Injectable }      from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
+import { myConfig }        from './auth.config';
 
 // Avoid name not found warnings
 declare var Auth0Lock: any;
@@ -7,7 +8,7 @@ declare var Auth0Lock: any;
 @Injectable()
 export class Auth {
   // Configure Auth0
-  lock = new Auth0Lock('oCzezT18YMr3HjyZlYqIRUFgbjAKNU6J', 'amata2.auth0.com', {});
+  lock = new Auth0Lock(myConfig.clientID, myConfig.domain, {});
 
   //Store profile object in auth class
   userProfile: any;

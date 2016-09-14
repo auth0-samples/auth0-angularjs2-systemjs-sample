@@ -2,6 +2,7 @@ import { Injectable }      from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
 import { AuthHttp }        from 'angular2-jwt';
 import { Router }          from '@angular/router';
+import { myConfig }        from './auth.config';
 import 'rxjs/add/operator/map';
 
 // Avoid name not found warnings
@@ -10,8 +11,8 @@ declare var Auth0Lock: any;
 @Injectable()
 export class Auth {
   // Configure Auth0
-  lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_DOMAIN');
-  lockLink = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_DOMAIN', {
+  lock = new Auth0Lock(myConfig.clientID, myConfig.domain);
+  lockLink = new Auth0Lock(myConfig.clientID, myConfig.domain, {
     auth: {params: {state: "linking"}},
     allowedConnections: ['Username-Password-Authentication', 'facebook', 'google-oauth2'],
     languageDictionary: { // allows to override dictionary entries
@@ -67,7 +68,7 @@ export class Auth {
     });
 
     this.authHttp
-      .post('https://' + 'YOUR_DOMAIN' + '/api/v2/users/' + this.userProfile.user_id + '/identities', data, {headers: headers})
+      .post('https://' + myConfig.domain + '/api/v2/users/' + this.userProfile.user_id + '/identities', data, {headers: headers})
       .map(response => response.json())
       .subscribe(
         response => {
@@ -86,7 +87,7 @@ export class Auth {
     };
 
     this.authHttp
-    .delete('https://' + 'YOUR_DOMAIN' + '/api/v2/users/' + this.userProfile.user_id + '/identities/' + identity.provider + "/" + identity.user_id, {headers: headers})
+    .delete('https://' + myConfig.domain + '/api/v2/users/' + this.userProfile.user_id + '/identities/' + identity.provider + "/" + identity.user_id, {headers: headers})
       .map(response => response.json())
       .subscribe(
         response => {
