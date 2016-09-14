@@ -4,6 +4,7 @@ import { Auth }                 from './auth.service';
 import { AuthHttp }             from 'angular2-jwt';
 import { Router }               from '@angular/router';
 import 'rxjs/add/operator/map';
+import { myConfig }             from './auth.config';
 
 @Component({
   selector: 'profile',
@@ -31,7 +32,7 @@ export class ProfileEdit {
     });
 
     this.authHttp
-      .patch('https://' + 'YOUR_DOMAIN' + '/api/v2/users/' + this.auth.userProfile.user_id, data, {headers: headers})
+      .patch('https://' + myConfig.domain + '/api/v2/users/' + this.auth.userProfile.user_id, data, {headers: headers})
       .map(response => response.json())
       .subscribe(
         response => {
