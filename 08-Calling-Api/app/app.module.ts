@@ -13,21 +13,21 @@ import { routing,
 
 @NgModule({
     declarations: [
-                        AppComponent,
-                        HomeComponent,
-                        PingComponent
-                  ],
+        AppComponent,
+        HomeComponent,
+        PingComponent
+    ],
     providers:    [
-                        appRoutingProviders,
-                        AUTH_PROVIDERS
-                  ],
+        appRoutingProviders,
+        AUTH_PROVIDERS
+    ],
     imports:      [
-                        BrowserModule,
-                        routing,
-                        FormsModule,
-                        HttpModule,
-                        JsonpModule
-                  ],
+        BrowserModule,
+        routing,
+        FormsModule,
+        HttpModule,
+        JsonpModule
+    ],
     bootstrap:    [AppComponent],
 })
 export class AppModule {}

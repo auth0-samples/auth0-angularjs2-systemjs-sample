@@ -15,23 +15,23 @@ import { routing,
 
 @NgModule({
     declarations: [
-                        AppComponent,
-                        HomeComponent,
-                        ProfileComponent,
-                        ProfileShow,
-                        ProfileEdit
-                  ],
+        AppComponent,
+        HomeComponent,
+        ProfileComponent,
+        ProfileShow,
+        ProfileEdit
+    ],
     providers:    [
-                        appRoutingProviders,
-                        AUTH_PROVIDERS
-                  ],
+        appRoutingProviders,
+        AUTH_PROVIDERS
+    ],
     imports:      [
-                        BrowserModule,
-                        routing,
-                        FormsModule,
-                        HttpModule,
-                        JsonpModule
-                  ],
+        BrowserModule,
+        routing,
+        FormsModule,
+        HttpModule,
+        JsonpModule
+    ],
     bootstrap:    [AppComponent],
 })
 export class AppModule {}

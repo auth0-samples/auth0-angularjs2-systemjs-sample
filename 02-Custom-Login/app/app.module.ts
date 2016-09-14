@@ -12,19 +12,19 @@ import { routing,
 
 @NgModule({
     declarations: [
-                        AppComponent,
-                        HomeComponent,
-                        LoginComponent
-                  ],
+        AppComponent,
+        HomeComponent,
+        LoginComponent
+    ],
     providers:    [
-                        appRoutingProviders,
-                        AUTH_PROVIDERS
-                  ],
+        appRoutingProviders,
+        AUTH_PROVIDERS
+    ],
     imports:      [
-                        BrowserModule,
-                        routing,
-                        FormsModule
-                  ],
+        BrowserModule,
+        routing,
+        FormsModule
+    ],
     bootstrap:    [AppComponent],
 })
 export class AppModule {}

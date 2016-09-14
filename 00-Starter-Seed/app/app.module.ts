@@ -9,14 +9,14 @@ import { routing,
 
 @NgModule({
     declarations: [
-                        AppComponent,
-                        HomeComponent
-                  ],
+        AppComponent,
+        HomeComponent
+    ],
     providers:    [appRoutingProviders],
     imports:      [
-                        BrowserModule,
-                        routing
-                  ],
+        BrowserModule,
+        routing
+    ],
     bootstrap:    [AppComponent],
 })
 export class AppModule {}
