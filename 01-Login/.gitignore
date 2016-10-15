@@ -15,3 +15,5 @@ _temp
 !systemjs.config.js
 !typings/typings.d.ts
 !wallaby.js
+
+auth0.config.ts
