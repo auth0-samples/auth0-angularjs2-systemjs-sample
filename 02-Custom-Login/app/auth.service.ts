@@ -4,67 +4,83 @@ import { Router }          from '@angular/router';
 import { myConfig }        from './auth.config';
 
 // Avoid name not found warnings
-declare var Auth0: any;
+declare var auth0: any;
 
 @Injectable()
 export class Auth {
+
   // Configure Auth0
-  auth0 = new Auth0({
+  auth0 = new auth0.WebAuth({
     domain: myConfig.domain,
     clientID: myConfig.clientID,
-    callbackOnLocationHash: true,
-    callbackURL: myConfig.callbackURL,
+    redirectUri: myConfig.callbackURL,
+    responseType: 'token id_token'
   });
 
   constructor(private router: Router) {
-    var result = this.auth0.parseHash(window.location.hash);
-
-    if (result && result.idToken) {
-      localStorage.setItem('id_token', result.idToken);
-      this.router.navigate(['/home']);
-    } else if (result && result.error) {
-      alert('error: ' + result.error);
-    }
   }
 
-  public signUp(username, password) {
-    this.auth0.signup({
+  public handleAuthentication(): void {
+    this.auth0.parseHash((err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        window.location.hash = '';
+        localStorage.setItem('access_token', authResult.accessToken);
+        localStorage.setItem('id_token', authResult.idToken);
+        this.router.navigate(['/home']);
+      } else if (authResult && authResult.error) {
+        alert(`Error: ${authResult.error}`);
+      }
+    });
+  }
+
+  public login(username: string, password: string): void {
+    this.auth0.client.login({
+      realm: 'Username-Password-Authentication',
+      username,
+      password
+    }, (err, authResult) => {
+      if (err) {
+        alert(`Error: ${err.description}`);
+        return;
+      }
+      if (authResult && authResult.idToken && authResult.accessToken) {
+        this.setUser(authResult);
+        this.router.navigate(['/home']);
+      }
+    });
+  }
+
+  public signup(email, password): void {
+    this.auth0.redirect.signupAndLogin({
       connection: 'Username-Password-Authentication',
-      responseType: 'token',
-      email: username,
-      password: password,
+      email,
+      password,
     }, function(err) {
-      if (err) alert("something went wrong: " + err.message);
+      if (err) {
+        alert(`Error: ${err.description}`);
+      }
     });
-  };
+  }
 
-  public login(username, password) {
-    this.auth0.login({
-      connection: 'Username-Password-Authentication',
-      responseType: 'token',
-      email: username,
-      password: password,
-    }, function(err) {
-      if (err) alert("something went wrong: " + err.message);
+  public loginWithGoogle(): void {
+    this.auth0.authorize({
+      connection: 'google-oauth2',
     });
-  };
+  }
 
-  public googleLogin() {
-    this.auth0.login({
-      connection: 'google-oauth2'
-    }, function(err) {
-      if (err) alert("something went wrong: " + err.message);
-    });
-  };
-
-  public authenticated() {
-    // Check if there's an unexpired JWT
-    // It searches for an item in localStorage with key == 'id_token'
+  public isAuthenticated(): boolean {
+    // Check whether the id_token is expired or not
     return tokenNotExpired();
-  };
+  }
 
-  public logout() {
+  public logout(): void {
     // Remove token from localStorage
+    localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
-  };
+  }
+
+  private setUser(authResult): void {
+    localStorage.setItem('access_token', authResult.accessToken);
+    localStorage.setItem('id_token', authResult.idToken);
+  }
 }
