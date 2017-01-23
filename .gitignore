@@ -17,3 +17,4 @@ _temp
 !wallaby.js
 
 auth.config.ts
+npm-debug.log
