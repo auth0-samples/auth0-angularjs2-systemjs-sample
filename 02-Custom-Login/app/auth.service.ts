@@ -27,8 +27,8 @@ export class Auth {
         localStorage.setItem('access_token', authResult.accessToken);
         localStorage.setItem('id_token', authResult.idToken);
         this.router.navigate(['/home']);
-      } else if (authResult && authResult.error) {
-        alert(`Error: ${authResult.error}`);
+      } else if (err) {
+        console.log(err);
       }
     });
   }
