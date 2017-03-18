@@ -34,19 +34,12 @@ export class Auth {
   }
 
   public login(username: string, password: string): void {
-    this.auth0.client.login({
-      realm: 'Username-Password-Authentication',
+    this.auth0.redirect.loginWithCredentials({
+      connection: 'Username-Password-Authentication',
       username,
       password
-    }, (err, authResult) => {
-      if (err) {
-        alert(`Error: ${err.description}`);
-        return;
-      }
-      if (authResult && authResult.idToken && authResult.accessToken) {
-        this.setUser(authResult);
-        this.router.navigate(['/home']);
-      }
+    }, err => {
+      if (err) return alert(err.description);
     });
   }
 
@@ -55,10 +48,8 @@ export class Auth {
       connection: 'Username-Password-Authentication',
       email,
       password,
-    }, function(err) {
-      if (err) {
-        alert(`Error: ${err.description}`);
-      }
+    }, err => {
+      if (err) return alert(err.description);
     });
   }
 
