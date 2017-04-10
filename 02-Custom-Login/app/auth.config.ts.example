@@ -1,7 +1,7 @@
 interface AuthConfiguration {
-    clientID: string,
-    domain: string,
-    callbackURL: string
+    clientID: string;
+    domain: string;
+    callbackURL: string;
 }
 
 export const myConfig: AuthConfiguration = {
